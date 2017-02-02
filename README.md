@@ -1,9 +1,9 @@
 # aws-elk-billing [![Build Status](https://travis-ci.org/PriceBoardIn/aws-elk-billing.svg?branch=master)](https://travis-ci.org/PriceBoardIn/aws-elk-billing)
 
-![Alt text](https://github.com/prasenforu/aws-elk-billing/blob/master/screenshots/kibana-dashboard.png "Overview") 
+![Alt text](https://github.com/prasenforu/aws-elk-billing/blob/master/screenshots/kibana-dashboard.png "Overview")
 
 ## Overview
- 
+
 aws-elk-billing is a combination of configuration snippets and tools to assist with indexing AWS programatic billing access files(CSV's) and visualizing the data using Kibana.
 
 Currently it supports `AWS Cost and Usage Report` type, although it might work for other [AWS Billing Report Types](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/detailed-billing-reports.html#other-reports) which contains some extra columns along with all the columns from `AWS Cost and Usage Report`.
@@ -24,7 +24,7 @@ Follow instructions at http://docs.aws.amazon.com/awsaccountbilling/latest/about
 
 
 ### Architecture
-There are Four Docker containers. 
+There are Four Docker containers.
 
 1. [elasticsearch:5-alpine](https://hub.docker.com/_/elasticsearch/)
 2. [priceboard/docker-alpine:kibana](https://hub.docker.com/r/priceboard/docker-alpine/) (https://github.com/PriceBoardIn/docker-alpine/tree/master/alpine-kibana)
@@ -53,7 +53,7 @@ Clone the Repository and make sure that no process is listening to the ports use
 Ports | Process
 ------------ | -------------
 9200, 9300 | Elasticsearch
-5160 | Kibana
+5601 | Kibana
 5140 | Logstash
 
 ### Set S3 credentials and AWS Billing bucket and directory name
@@ -74,9 +74,9 @@ The entire process is automated through scripts and docker. All the components w
 2. View `Kibana` at http://localhost:5601
 
     2.1 Use the **index pattern** as `aws-billing-*` and select the **time field** as `lineItem/UsageStartDate`
-    
+
     2.2 `Kibana AWS Billing Dashboard` http://localhost:5601/app/kibana#/dashboard/AWS-Billing-DashBoard
-    
+
     2.3 For MAC replace localhost with the ip of docker-machine
     To find IP of docker-machine `docker-machine ip default`
 

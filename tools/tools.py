@@ -59,7 +59,7 @@ class Tools:
 
         for _ in range(15):
             try:
-                print 'Checking if Kibana container has started to listen to 5160'
+                print 'Checking if Kibana container has started to listen to 5601'
                 kibana_socket.connect(('kibana', 5601))
                 print 'Great Kibana is listening on 5601 :)'
                 connection_ok = True
