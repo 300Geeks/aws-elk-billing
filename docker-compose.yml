@@ -23,7 +23,7 @@ services:
     command: bash -c "python -u /aws-elk-billing/orchestrate.py"
 
   logstash:
-    image: logstash:5-alpine 
+    image: logstash:5-alpine
     ports:
     - 5140:5140
     depends_on:
@@ -50,3 +50,5 @@ services:
     ports:
     - 9200:9200
     - 9300:9300
+    environment:
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
